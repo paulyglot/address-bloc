@@ -8,6 +8,7 @@ const inquirer = require('inquirer');
         name: "mainMenuChoice",
         message: "Please choose from an option below: ",
         choices: [
+          "Get Date and Time",
           "Add new contact",
           "Exit"
         ]
@@ -23,6 +24,9 @@ const inquirer = require('inquirer');
          case "Add new contact":
            this.addContact();
            break;
+         case "Get Date and Time":
+           this.getDate();
+           break;
          case "Exit":
            this.exit();
          default:
@@ -37,6 +41,14 @@ const inquirer = require('inquirer');
 
    clear(){
    	console.log("\x1Bc");
+   }
+
+   getDate(){
+   	this.clear();
+   	let date = require('date-and-time');
+   	let now = new Date();
+   	console.log(date.format(now, 'YYYY/MM/DD HH:mm:ss'));
+   	this.main();
    }
 
    addContact(){
