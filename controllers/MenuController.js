@@ -11,8 +11,8 @@ const ContactController = require("./ContactController");
         choices: [
           "Get Date and Time",
           "Add new contact",
-          "Exit",
-          "Add new email"
+          "Add new email",
+          "Exit"
         ]
       }
     ];
@@ -24,9 +24,6 @@ const ContactController = require("./ContactController");
      inquirer.prompt(this.mainMenuQuestions).then((response) => {
        switch(response.mainMenuChoice){
          case "Add new contact":
-           this.addContact();
-           break;
-         case "Add new email":
            this.addContact();
            break;
          case "Get Date and Time":
@@ -59,20 +56,7 @@ const ContactController = require("./ContactController");
    addContact(){
      this.clear();
      inquirer.prompt(this.book.addContactQuestions).then((answers) => {
-       this.book.addContact(answers.name, answers.phone).then((contact) => {
-         console.log("Contact added successfully!");
-         this.main();
-       }).catch((err) => {
-         console.log(err);
-         this.main();
-       });
-     });
-   }
-
-   addEmail(){
-     this.clear();
-     inquirer.prompt(this.book.addContactQuestions).then((answers) => {
-       this.book.addContact(answers.name, answers.phone).then((contact) => {
+       this.book.addContact(answers.name, answers.phone, answers.email).then((contact) => {
          console.log("Contact added successfully!");
          this.main();
        }).catch((err) => {
