@@ -10,6 +10,7 @@ const ContactController = require("./ContactController");
         message: "Please choose from an option below: ",
         choices: [
           "Get Date and Time",
+          "View all contacts",
           "Add new contact",
           "Add new email",
           "Exit"
@@ -28,6 +29,9 @@ const ContactController = require("./ContactController");
            break;
          case "Get Date and Time":
            this.getDate();
+           break;
+         case "View all contacts":
+           this.getContacts();
            break;
          case "Exit":
            this.exit();
@@ -80,4 +84,31 @@ const ContactController = require("./ContactController");
     return 'Learning is a life-long pursuit';
     this.main();
    }
+
+    getContacts(){
+    this.clear();
+
+    this.book.getContacts().then((contacts) => {
+      for (let contact of contacts) {
+        console.log(`
+        name: ${contact.name}
+        phone number: ${contact.phone}
+        email: ${contact.email}
+        ---------------`
+        );
+      }
+      this.main();
+    }).catch((err) => {
+      console.log(err);
+      this.main();
+    });
+  }
  }
+
+
+
+
+
+
+
+ 
