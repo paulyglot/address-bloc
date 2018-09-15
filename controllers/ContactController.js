@@ -30,6 +30,35 @@ constructor(){
          }
        }
      ];
+  this.searchQuestions = [
+      {
+        type: "input",
+        name: "name",
+        message: "Name of contact to search - ",
+        validate(val){
+          return val !== "";
+        }
+      }
+    ];
+  this.showContactQuestions = [
+    {
+      type: "list",
+      name: "selected",
+      message: "Please choose from an option below: ",
+      choices: [
+        "Delete contact",
+        "Main menu"
+      ]
+    }
+  ];
+
+  this.deleteConfirmQuestions = [
+    {
+      type: "confirm",
+      name: "confirmation",
+      message: "are you sure you want to delete this contact?"
+    }
+  ];
 	}
 
 addContact(name, phone, email){
@@ -47,6 +76,12 @@ iterativeSearch(contacts, target){
       }
       return null;
     }
+
+delete(id){
+  return Contact.destroy({
+    where: {id}
+  })
+}
     
 search(name){
       return Contact.findOne({

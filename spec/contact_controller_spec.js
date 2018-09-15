@@ -146,17 +146,18 @@ describe("search methods", () => {
    });
 
 describe("#addContact()", () => {
-
-     it("should add a single contact into the book", (done) => {
-       this.book.addContact("Paul", "408-368-3605", "pabrower@icloud.com")
+      it("should add a single contact into the book", (done) => {
+       this.book.addContact("Paul", "001-101-1010")
         .then((contact) => {
         	expect(contact.name).toBe("Paul");
-          expect(contact.phone).toBe("408-368-3605");
-          expect(contact.email).toBe("pabrower@icloud.com");
+          expect(contact.phone).toBe("001-101-1010");
           done();
         })
         .catch((err) => {
-          done();
-        });
+           done();
+         });
+       }); 
      });
-  };
+   });
+ });
+});
