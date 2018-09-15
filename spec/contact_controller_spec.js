@@ -5,7 +5,6 @@ describe("ContactController", () => {
 
 	beforeEach((done) => {
        this.book = new ContactController();
-408-368-
 // #1
        sequelize.sync({force: true}).then((res) => {
          done();
@@ -123,7 +122,6 @@ describe("#binarySearch()", () => {
        done();
      });
    })
- });
 
  it("should return the contact if found", (done) => {
    this.book.addContact(...alloy).then(() => {
@@ -163,8 +161,7 @@ describe("#addContact()", () => {
         });
      });
 
-   });
-});
+
 
 
 
