@@ -122,6 +122,24 @@ const ContactController = require("./ContactController");
     });
   }
 
+  delete(contact){
+    inquirer.prompt(this.book.deleteConfirmQuestions)
+    .then((answer) => {
+      if(answer.confirmation){
+        this.book.delete(contact.id);
+        console.log("contact deleted!");
+        this.main();
+      } else {
+        console.log("contact not deleted");
+        this.showContact(contact);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      this.main();
+    });
+  }
+
   _printContact(contact){
     console.log(`
       name: ${contact.name}
