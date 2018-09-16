@@ -1,0 +1,17 @@
+1.Performing a search of a sorted by name IRS database for a taxpayer name
+
+Answer: binary search because it's likely the names are list in alphabetical order,
+therefore be can use binary for the fastest most effective searching.
+
+2.Searching through an unsorted list containing the days of the weekend
+
+Answer: iterative search because it's an unsorted list and we can't use binary on an
+unsorted list.
+
+3.Given a list of the planets in the Milky Way in ascending order by size, search for a planet with a given size.
+
+Answer: binary search because since size is the variable we're looking for, and those are listed smallest to largest this is  sorted for the variable we want.
+
+4.Searching for a checkpoint name in an unsorted list of Bloc checkpoints
+
+Answer: iterative search because the checkpoints are unsorted.
