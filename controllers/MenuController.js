@@ -53,24 +53,6 @@ const ContactController = require("./ContactController");
    	console.log("\x1Bc");
    }
 
-   delete(contact){
-    inquirer.prompt(this.book.deleteConfirmQuestions)
-    .then((answer) => {
-      if(answer.confirmation){
-        this.book.delete(contact.id);
-        console.log("contact deleted!");
-        this.main();
-      } else {
-        console.log("contact not deleted");
-        this.showContact(contact);
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      this.main();
-    });
-  }
-
    getDate(){
    	this.clear();
    	let date = require('date-and-time');
